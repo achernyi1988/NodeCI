@@ -12,9 +12,11 @@
     "heroku-postbuild": "npm run build",
     "test": "jest --detectOpenHandles --runInBand  --forceExit"
   },
-    "jest": {
+  "jest": {
     "testEnvironment": "node",
-    "setupFilesAfterEnv": ["./tests/setup.js"]
+    "setupFilesAfterEnv": [
+      "./tests/setup.js"
+    ]
   },
   "author": "",
   "license": "ISC",
