@@ -1,8 +1,8 @@
 const KeyGrip = require("keygrip")
 const Buffer = require("safe-buffer").Buffer
 
-const keys = require("../../config/keys")
-const keygrip = new KeyGrip([keys.cookieKey])
+ 
+const keygrip = new KeyGrip([process.env.cookieKey])
 
 
 module.exports =  (user) => {

@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "server": "nodemon index.js --ignore tests",
+    "server": "env-cmd -f ./config/dev.js  nodemon index.js --ignore tests",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "heroku-postbuild": "npm run build",
-    "test": "jest --detectOpenHandles --runInBand  --forceExit"
+    "test": "env-cmd -f ./config/dev.js jest --detectOpenHandles --runInBand  --forceExit",
+    "test_ci": "jest --detectOpenHandles --runInBand  --forceExit"
   },
   "jest": {
     "testEnvironment": "node",
@@ -39,6 +40,7 @@
     "uuid": "^3.2.1"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.4"
+    "@types/jest": "^26.0.4",
+    "env-cmd": "^10.1.0"
   }
 }
